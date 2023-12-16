@@ -30,3 +30,27 @@ function reset() { //  <== เมื่อมีการกดปุ่ม C �
 
 
 // SUPHAKIT LOMLAO KKTECH
+// อีกรูปแบบ
+// const counter = document.querySelector(".counter");
+// const inc_btn = document.querySelector('.btn-inc');
+// const dec_btn = document.querySelector('.btn-dec');
+// const clr_btn = document.querySelector('.btn-clr');
+// let count = 0;
+
+// function updateCount(count) {
+//     document.querySelector('.number').textContent = count;
+// }
+// inc_btn.addEventListener('click', function() {
+//     count += 1;
+//     updateCount(count);
+// });
+// dec_btn.addEventListener('click', function() {
+//     if (count > 0) {
+//         count -= 1;
+//         updateCount(count);
+//     }
+// });
+// clr_btn.addEventListener('click', function() {
+//     count = 0;
+//     updateCount(count);
+// });
