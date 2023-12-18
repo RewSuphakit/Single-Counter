@@ -5,52 +5,22 @@
 // btn btn-dec ปุ่ม -   = decrease
 // btn btn-clr ปุ่ม เคลีย = reset
 // number 0 =  counter 
-const counter = document.querySelector('#counter');
-let counterValue = 0; //  <== ประกาศตัวแปล กำหนด ค่าเป็น 0
-function updateCounter() {
-    counter.innerText = counterValue; // <== สงค่า counterValue ไปยัง  id="counter" ในหน้า index
-}
+const counter = document.querySelector('.counter')
+const btnInc = document.querySelector('.btn-inc')
+const btnDec = document.querySelector('.btn-dec')
+const btnClr = document.querySelector('.btn-clr')
+const number = document.querySelector('.number')
 
-function increase() { // <== เมื่อมีการกดปุ่ม + ในหน้า index จะเกิด อีเว่นเรียกใช่ฝั่งชั่น  increase() 
-    counterValue++; // จะนับเป็น 1 
-    updateCounter(); // เรียกใช่ฟังชั่นอัพเดท Counter
-}
+let countNum = 0;
 
-function decrease() { // <== เมื่อมีการกดปุ่ม - ในหน้า index จะเกิด อีเว่นเรียกใช่ฝั่งชั่น  decrease() 
-    if (counterValue > 0) { // ตรวจสอบไม่ให้ค่าติด ลบ หรือน้อยกว่า 0
-        counterValue--; // ทำการลบ 1
-        updateCounter(); // เรียกใช่ฟังชั่นอัพเดท Counter
+function updateCounter(n) {
+    if (countNum + n < 0) {
+        return
     }
+    countNum += n
+    number.textContent = countNum
 }
-
-function reset() { //  <== เมื่อมีการกดปุ่ม C ในหน้า index จะเกิด อีเว่นเรียกใช่ฝั่งชั่น  reset()
-    counterValue = 0; //    รีเซ็ตโดยตั้ง ค่า counterValue เป็น 0 55555  ได้บ่อน้อ
-    updateCounter(); // เรียกใช่ฟังชั่นอัพเดท Counter
-}
-
-
-// SUPHAKIT LOMLAO KKTECH
-// อีกรูปแบบ
-// const counter = document.querySelector(".counter");
-// const inc_btn = document.querySelector('.btn-inc');
-// const dec_btn = document.querySelector('.btn-dec');
-// const clr_btn = document.querySelector('.btn-clr');
-// let count = 0;
-
-// function updateCount(count) {
-//     document.querySelector('.number').textContent = count;
-// }
-// inc_btn.addEventListener('click', function() {
-//     count += 1;
-//     updateCount(count);
-// });
-// dec_btn.addEventListener('click', function() {
-//     if (count > 0) {
-//         count -= 1;
-//         updateCount(count);
-//     }
-// });
-// clr_btn.addEventListener('click', function() {
-//     count = 0;
-//     updateCount(count);
-// });
+btnInc.addEventListener('click', () => updateCounter(1))
+btnDec.addEventListener('click', () => updateCounter(-1))
+btnClr.addEventListener('click', () => updateCounter(-countNum))
+    // SUPHAKIT LOMLAO KKTECH
